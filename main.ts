@@ -26,7 +26,15 @@ while (pressed1 == 0) {
     } else if (input.pinIsPressed(TouchPin.P1)) {
         display_1(5)
     } else if (input.pinIsPressed(TouchPin.P2)) {
-        display_1(6)
+        basic.showLeds(`
+            . # # # .
+            # . . . .
+            # # # # .
+            # . . . #
+            . # # # .
+            `)
+        a = 6
+        pressed1 = 1
     }
 }
 while (pressed2 == 0) {
@@ -41,8 +49,17 @@ while (pressed2 == 0) {
     } else if (input.pinIsPressed(TouchPin.P1)) {
         display_2(5)
     } else if (input.pinIsPressed(TouchPin.P2)) {
-        display_2(6)
+        basic.showLeds(`
+            . # # # .
+            # . . . .
+            # # # # .
+            # . . . #
+            . # # # .
+            `)
+        b = 6
+        pressed2 = 1
     }
 }
 basic.clearScreen()
+music.playMelody("C5 G B C5 - - - - ", 500)
 basic.showString("" + a + "x" + b + "=" + a * b)
